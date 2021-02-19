@@ -1,9 +1,8 @@
 import React from 'react'
 import * as BooksAPI from './BooksAPI'
 import './App.css'
-import SearchPage from './components/SearchPage'
-import BookPage from './components/BookPage'
-import { Link } from 'react-router-dom'
+import SearchPage from './pages/SearchPage'
+import BookPage from './pages/BookPage'
 
 
 class BooksApp extends React.Component {
@@ -26,7 +25,7 @@ class BooksApp extends React.Component {
   }
 
   render() {
-    console.log(this.state)
+
     return (
       <div className="app">
         {this.state.showSearchPage === 'search' && (
@@ -36,7 +35,7 @@ class BooksApp extends React.Component {
           }} />
         )}
         {this.state.showSearchPage === '' && (
-          < BookPage
+          < BookPage books={this.state.books}
             onNavigate={() => {
               this.setState(() =>
                 ({ showSearchPage: 'search' }))

@@ -1,20 +1,39 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Book from '../components/Book'
+import PropTypes from 'prop-types'
 
-class CurrentlyReading extends Component {
-    render() {
+const CurrentlyReading = ({ books, shelves, onChange, title }) => {
 
-        const { books } = this.props
 
-        return (
+    const currentReading = books.filter((book) => {
+        return book.shelf === 'currentlyReading'
+    })
 
-            < div className="bookshelf" >
-                <h2 className="bookshelf-title">Currently Reading</h2>
-                <div className="bookshelf-books">
-                    <Book books={books} />
-                </div>
-            </div >)
-    }
+
+
+
+    return (
+        console.log(onChange),
+        < div className="bookshelf" >
+            <h2 className="bookshelf-title">Currently Reading</h2>
+            <div className="bookshelf-books">
+                < ol className="books-grid" >
+                    {currentReading.map((book) => (
+                        <Book
+                            key={book.id}
+                            book={book}
+                            shelves={shelves}
+                            onChange={onChange}
+                        />
+                    ))}
+                </ol >
+            </div>
+        </div >)
 }
+
+
+CurrentlyReading.propTypes = {
+    books: PropTypes.array.isRequired
+};
 
 export default CurrentlyReading

@@ -4,7 +4,7 @@ import BooksApp from '../App';
 class Book extends Component {
 
     render() {
-        console.log(this.props)
+
         const { book, shelves, onChange } = this.props
         const { title, imageLinks, authors, shelf } = book
         const imageURL = imageLinks ? imageLinks.thumbnail : '';
@@ -25,13 +25,6 @@ class Book extends Component {
                                         </option>
                                     ))}
                                 </select>
-                                {/* <select>
-                                    <option value="move" disabled>Move to...</option>
-                                    <option value="currentlyReading">Currently Reading</option>
-                                    <option value="wantToRead">Want to Read</option>
-                                    <option value="read">Read</option>
-                                    <option value="none">None</option>
-                                </select> */}
                             </div>
                         </div>
                         <div className="book-title">{title}</div>

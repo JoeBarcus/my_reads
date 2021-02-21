@@ -65,9 +65,16 @@ class BooksApp extends React.Component {
             <BookPage
               shelves={this.shelves}
               books={this.state.books}
-              changeBookStatus={this.changeBookStatus} />
+              changeBookStatus={this.changeBookStatus}
+            />
           </Route>
-          <Route path='/search'><SearchPage /></Route>
+          <Route path='/search'>
+            <SearchPage
+              shelves={this.shelves}
+              books={this.state.books}
+              changeBookStatus={this.changeBookStatus}
+            />
+          </Route>
         </Switch>
       </div>)
   }
